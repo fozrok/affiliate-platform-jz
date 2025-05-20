@@ -1,0 +1,17 @@
+{
+  "name": "affiliate-platform",
+  "version": "1.0.0",
+  "description": "Graph-based affiliate tracking platform",
+  "scripts": {
+    "install:all": "npm install && cd api && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"cd api && npm run dev\" \"cd frontend && npm run dev\"",
+    "build": "cd api && npm run build && cd ../frontend && npm run build",
+    "start": "concurrently \"cd api && npm run start\" \"cd frontend && npm run start\"",
+    "seed": "cd api && npm run seed"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
