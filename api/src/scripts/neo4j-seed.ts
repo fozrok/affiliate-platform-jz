@@ -1,4 +1,12 @@
 import neo4jConfig from '../config/neo4j';
+console.log('Using Neo4j URI:', process.env.NEO4J_URI);
+console.log('Using Neo4j User:', process.env.NEO4J_USER);
+console.log('Using Neo4j Password:', process.env.NEO4J_PASSWORD);
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load env vars
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const setupDatabase = async (): Promise<void> => {
   const session = neo4jConfig.session();

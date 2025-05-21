@@ -1,0 +1,178 @@
+.
+|-- tree.txt
+|-- node_modules
+|-- README.md
+|-- frontend
+|   |-- next-env.d.ts
+|   |-- node_modules
+|   |-- README.md
+|   |-- postcss.config.js
+|   |-- public
+|   |   |-- vercel.svg
+|   |   |-- next.svg
+|   |   |-- globe.svg
+|   |   |-- file.svg
+|   |   |-- window.svg
+|   |-- postcss.config.mjs
+|   |-- .gitignore
+|   |-- package.json
+|   |-- tsconfig.json
+|   |-- .git
+|   |-- src
+|   |   |-- components
+|   |   |   |-- admin
+|   |   |   |   |-- AffiliateTable.tsx
+|   |   |-- pages
+|   |   |-- services
+|   |   |   |-- api.ts
+|   |   |-- app
+|   |   |   |-- admin
+|   |   |   |-- globals.css
+|   |   |   |-- favicon.ico
+|   |   |   |-- layout.tsx
+|   |   |   |-- affiliate
+|   |   |   |-- page.tsx
+|   |   |-- contexts
+|   |   |   |-- AuthContext.tsx
+|   |   |-- utils
+|   |-- package-lock.json
+|   |-- eslint.config.mjs
+|   |-- next.config.js
+|   |-- .next
+|   |   |-- static
+|   |   |   |-- webpack
+|   |   |   |   |-- 0e8c5d28799533b1.webpack.hot-update.json
+|   |   |   |   |-- 633457081244afec._.hot-update.json
+|   |   |   |   |-- app
+|   |   |   |   |   |-- layout.0e8c5d28799533b1.hot-update.js
+|   |   |   |   |-- webpack.0e8c5d28799533b1.hot-update.js
+|   |   |   |-- css
+|   |   |   |   |-- app
+|   |   |   |   |   |-- layout.css
+|   |   |   |-- chunks
+|   |   |   |   |-- polyfills.js
+|   |   |   |   |-- app
+|   |   |   |   |   |-- layout.js
+|   |   |   |   |   |-- page.js
+|   |   |   |   |-- main-app.js
+|   |   |   |   |-- app-pages-internals.js
+|   |   |   |   |-- webpack.js
+|   |   |   |-- media
+|   |   |   |   |-- 55c55f0601d81cf3-s.woff2
+|   |   |   |   |-- 6d93bde91c0c2823-s.woff2
+|   |   |   |   |-- a34f9d1faa5f3315-s.p.woff2
+|   |   |   |   |-- df0a9ae256c0569c-s.woff2
+|   |   |   |   |-- 26a46d62cd723877-s.woff2
+|   |   |   |   |-- 581909926a08bbc8-s.woff2
+|   |   |   |   |-- 97e0cb1ae144a2a9-s.woff2
+|   |   |   |-- development
+|   |   |   |   |-- _buildManifest.js
+|   |   |   |   |-- _ssgManifest.js
+|   |   |-- build-manifest.json
+|   |   |-- trace
+|   |   |-- types
+|   |   |   |-- app
+|   |   |   |   |-- page.ts
+|   |   |   |   |-- layout.ts
+|   |   |   |-- package.json
+|   |   |-- react-loadable-manifest.json
+|   |   |-- package.json
+|   |   |-- app-build-manifest.json
+|   |   |-- server
+|   |   |   |-- app-paths-manifest.json
+|   |   |   |-- next-font-manifest.json
+|   |   |   |-- vendor-chunks
+|   |   |   |   |-- next.js
+|   |   |   |   |-- @swc.js
+|   |   |   |-- middleware-build-manifest.js
+|   |   |   |-- middleware-manifest.json
+|   |   |   |-- pages-manifest.json
+|   |   |   |-- app
+|   |   |   |   |-- favicon.ico
+|   |   |   |   |   |-- route.js
+|   |   |   |   |-- page_client-reference-manifest.js
+|   |   |   |   |-- page.js
+|   |   |   |-- next-font-manifest.js
+|   |   |   |-- server-reference-manifest.js
+|   |   |   |-- webpack-runtime.js
+|   |   |   |-- middleware-react-loadable-manifest.js
+|   |   |   |-- server-reference-manifest.json
+|   |   |-- cache
+|   |   |   |-- webpack
+|   |   |   |   |-- server-development
+|   |   |   |   |   |-- 1.pack.gz
+|   |   |   |   |   |-- 7.pack.gz
+|   |   |   |   |   |-- index.pack.gz.old
+|   |   |   |   |   |-- 2.pack.gz
+|   |   |   |   |   |-- 0.pack.gz
+|   |   |   |   |   |-- 5.pack.gz
+|   |   |   |   |   |-- 8.pack.gz
+|   |   |   |   |   |-- 6.pack.gz
+|   |   |   |   |   |-- 4.pack.gz
+|   |   |   |   |   |-- 3.pack.gz
+|   |   |   |   |   |-- index.pack.gz
+|   |   |   |   |-- client-production
+|   |   |   |   |   |-- index.pack
+|   |   |   |   |   |-- 0.pack
+|   |   |   |   |-- client-development
+|   |   |   |   |   |-- 1.pack.gz
+|   |   |   |   |   |-- 7.pack.gz
+|   |   |   |   |   |-- 10.pack.gz
+|   |   |   |   |   |-- index.pack.gz.old
+|   |   |   |   |   |-- 2.pack.gz
+|   |   |   |   |   |-- 0.pack.gz
+|   |   |   |   |   |-- 5.pack.gz
+|   |   |   |   |   |-- 8.pack.gz
+|   |   |   |   |   |-- 6.pack.gz
+|   |   |   |   |   |-- 9.pack.gz
+|   |   |   |   |   |-- 4.pack.gz
+|   |   |   |   |   |-- 3.pack.gz
+|   |   |   |   |   |-- index.pack.gz
+|   |   |   |   |-- server-production
+|   |   |   |   |   |-- index.pack
+|   |   |   |   |   |-- 0.pack
+|   |   |   |   |-- client-development-fallback
+|   |   |   |   |   |-- index.pack.gz.old
+|   |   |   |   |   |-- 0.pack.gz
+|   |   |   |   |   |-- index.pack.gz
+|   |   |   |-- .tsbuildinfo
+|   |   |   |-- .rscinfo
+|   |   |   |-- swc
+|   |   |   |   |-- plugins
+|   |   |   |   |   |-- v7_linux_x86_64_0.102.1
+|   |   |   |   |   |-- v7_linux_x86_64_9.0.0
+|   |-- .env.local
+|   |-- tailwind.config.js
+|-- .gitignore
+|-- package.json
+|-- api
+|   |-- dist
+|   |-- node_modules
+|   |-- .env
+|   |-- package.json
+|   |-- tsconfig.json
+|   |-- src
+|   |   |-- config
+|   |   |   |-- neo4j.ts
+|   |   |-- types
+|   |   |   |-- express.d.ts
+|   |   |-- scripts
+|   |   |   |-- neo4j-seed.ts
+|   |   |-- services
+|   |   |-- models
+|   |   |-- app.ts
+|   |   |-- middleware
+|   |   |   |-- auth.ts
+|   |   |-- controllers
+|   |   |-- utils
+|   |   |-- routes
+|   |   |   |-- webhookRoutes.ts
+|   |   |   |-- adminRoutes.ts
+|   |   |   |-- productRoutes.ts
+|   |   |   |-- affiliateRoutes.ts
+|   |   |   |-- authRoutes.ts
+|   |-- package-lock.json
+|   |-- Dockerfile
+|-- docker-compose.yml
+|-- .git
+|-- package-lock.json

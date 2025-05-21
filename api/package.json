@@ -27,7 +27,10 @@
     "firebase-admin": "^11.11.0",
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
-    "neo4j-driver": "^5.12.0"
+    "neo4j-driver": "^5.12.0",
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.15",
