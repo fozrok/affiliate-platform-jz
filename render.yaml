@@ -1,0 +1,67 @@
+services:
+  # Backend API
+  - type: web
+    name: affiliate-api
+    env: node
+    buildCommand: cd api && npm install && npm run build
+    startCommand: cd api && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEO4J_URI
+        fromService:
+          name: neo4j-database
+          type: pserv
+          property: connectionString
+      - key: NEO4J_USER
+        fromService:
+          name: neo4j-database
+          type: pserv
+          property: user
+      - key: NEO4J_PASSWORD
+        fromService:
+          name: neo4j-database
+          type: pserv
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: SHOPIFY_WEBHOOK_SECRET
+        sync: false
+      - key: SHOPIFY_SHOP_NAME
+        sync: false
+      - key: SHOPIFY_API_KEY
+        sync: false
+      - key: SHOPIFY_API_PASSWORD
+        sync: false
+      - key: SHOPIFY_API_VERSION
+        value: 2023-07
+      - key: SHOPIFY_SHOP_URL
+        sync: false
+    
+  # Frontend Next.js app
+  - type: web
+    name: affiliate-frontend
+    env: node
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: affiliate-api
+          type: web
+          property: url
+      - key: FIREBASE_API_KEY
+        sync: false
+      - key: FIREBASE_AUTH_DOMAIN
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+
+databases:
+  # Neo4j Database
+  - name: neo4j-database
+    plan: starter
+    type: pserv

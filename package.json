@@ -7,11 +7,38 @@
     "dev": "concurrently \"cd api && npm run dev\" \"cd frontend && npm run dev\"",
     "build": "cd api && npm run build && cd ../frontend && npm run build",
     "start": "concurrently \"cd api && npm run start\" \"cd frontend && npm run start\"",
-    "seed": "cd api && npm run seed"
+    "seed": "cd api && npm run seed",
+    "sync": "cd api && npm run sync",
+    "api:dev": "cd api && npm run dev",
+    "api:build": "cd api && npm run build",
+    "api:start": "cd api && npm run start",
+    "api:seed": "cd api && npm run seed",
+    "api:sync": "cd api && npm run sync",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:start": "cd frontend && npm run start"
   },
-  "author": "",
+  "author": "MyAiAd",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.1"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyAiAd/affiliate-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MyAiAd/affiliate-platform/issues"
+  },
+  "homepage": "https://github.com/MyAiAd/affiliate-platform#readme",
+  "keywords": [
+    "affiliate",
+    "neo4j",
+    "graph-database",
+    "shopify",
+    "marketing"
+  ]
 }
