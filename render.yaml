@@ -1,4 +1,31 @@
 services:
+  # Neo4j Database (as a Docker service instead of managed database)
+  - type: pserv
+    name: neo4j-database
+    env: docker
+    repo: https://github.com/neo4j/docker-neo4j.git
+    dockerfilePath: ./docker/standalone/Dockerfile
+    plan: standard
+    disk:
+      name: neo4j-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: NEO4J_AUTH
+        value: neo4j/your-password-here
+      - key: NEO4J_ACCEPT_LICENSE_AGREEMENT
+        value: yes
+      - key: NEO4J_apoc_export_file_enabled
+        value: true
+      - key: NEO4J_apoc_import_file_enabled
+        value: true
+      - key: NEO4J_apoc_import_file_use__neo4j__config
+        value: true
+      - key: NEO4J_dbms_memory_pagecache_size
+        value: 512M
+      - key: NEO4J_dbms_memory_heap_max__size
+        value: 1G
+    
   # Backend API
   - type: web
     name: affiliate-api
@@ -10,20 +37,11 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEO4J_URI
-        fromService:
-          name: neo4j-database
-          type: pserv
-          property: connectionString
+        value: bolt://neo4j-database:7687
       - key: NEO4J_USER
-        fromService:
-          name: neo4j-database
-          type: pserv
-          property: user
+        value: neo4j
       - key: NEO4J_PASSWORD
-        fromService:
-          name: neo4j-database
-          type: pserv
-          property: password
+        value: your-password-here  # Make sure this matches the password in NEO4J_AUTH above
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_EXPIRES_IN
@@ -59,9 +77,3 @@ services:
         sync: false
       - key: FIREBASE_PROJECT_ID
         sync: false
-
-databases:
-  # Neo4j Database
-  - name: neo4j-database
-    plan: starter
-    type: pserv
