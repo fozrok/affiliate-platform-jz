@@ -12,7 +12,7 @@ services:
       sizeGB: 10
     envVars:
       - key: NEO4J_AUTH
-        value: neo4j/your-password-here
+        value: neo4j/T3sla12e!  # Using your password from the docker-compose file
       - key: NEO4J_ACCEPT_LICENSE_AGREEMENT
         value: yes
       - key: NEO4J_apoc_export_file_enabled
@@ -41,7 +41,7 @@ services:
       - key: NEO4J_USER
         value: neo4j
       - key: NEO4J_PASSWORD
-        value: your-password-here  # Make sure this matches the password in NEO4J_AUTH above
+        value: T3sla12e!  # Make sure this matches the password in NEO4J_AUTH above
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_EXPIRES_IN
@@ -70,7 +70,7 @@ services:
         fromService:
           name: affiliate-api
           type: web
-          property: url
+          property: host  # Changed from 'url' to 'host'
       - key: FIREBASE_API_KEY
         sync: false
       - key: FIREBASE_AUTH_DOMAIN
