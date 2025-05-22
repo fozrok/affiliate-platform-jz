@@ -1,13 +1,19 @@
 import axios from 'axios';
 
+// Get API URL from environment variable or use default
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
+
+// Log the API URL to help with debugging
+console.log('API URL:', API_URL);
 
 // Create axios instance with default config
 const api = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  // Add timeout to prevent hanging requests
+  timeout: 10000
 });
 
 // Add token to requests
@@ -24,10 +30,31 @@ api.interceptors.request.use(
   }
 );
 
-// Handle token expiry
+// Handle token expiry and improve error handling
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
+    // Improved error logging with more context
+    if (error.response) {
+      // Server responded with a status code outside of 2xx range
+      console.error('API Error Response:', {
+        status: error.response.status,
+        statusText: error.response.statusText,
+        data: error.response.data,
+        endpoint: error.config.url
+      });
+    } else if (error.request) {
+      // Request was made but no response was received
+      console.error('No API Response:', {
+        endpoint: error.config.url,
+        method: error.config.method,
+        baseURL: error.config.baseURL
+      });
+    } else {
+      // Something happened in setting up the request
+      console.error('API Request Error:', error.message);
+    }
+
     if (error.response && error.response.status === 401) {
       // Redirect to login or refresh token
       localStorage.removeItem('authToken');
