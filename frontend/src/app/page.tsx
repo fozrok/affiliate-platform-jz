@@ -15,7 +15,10 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/affiliates')
+    // Use environment variable or default to API URL
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    
+    fetch(`${apiUrl}/api/affiliates`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -62,4 +65,3 @@ export default function HomePage() {
     </main>
   );
 }
-
