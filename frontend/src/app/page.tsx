@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import api from '../services/api';
 
 interface Affiliate {
   id: string;
@@ -15,16 +16,14 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Use environment variable or default to API URL
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-    
-    fetch(`${apiUrl}/api/affiliates`)
+    api.get('/affiliates')
       .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
+        setAffiliates(res.data.affiliates);
       })
-      .then((data) => setAffiliates(data.affiliates))
-      .catch((e) => setError(e.message));
+      .catch((err) => {
+        console.error('Error fetching affiliates:', err);
+        setError(err.message || 'Failed to fetch affiliates');
+      });
   }, []);
 
   if (error) {
