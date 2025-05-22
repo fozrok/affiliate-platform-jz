@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import api from '../services/api';
+import api, { adminApi } from '../services/api';
 
 interface Affiliate {
   id: string;
@@ -16,7 +16,7 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    api.get('/affiliates')
+    adminApi.getAffiliates()
       .then((res) => {
         setAffiliates(res.data.affiliates);
       })
